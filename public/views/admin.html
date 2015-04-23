@@ -1,0 +1,94 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-list"></span>Resources awaiting authorization 
+            <div class="pull-right action-buttons">
+              <div class="btn-group pull-right">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-cog" style="margin-right: 0px;"></span>
+                </button>                
+              </div>
+            </div>
+          </div>
+        <div class="panel-body">
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="resource in resources">
+              <div class="checkbox">                  
+                <label ng-bind="resource.title"></label>
+                <small>By </small><span ng-bind="resource.contributor"></span>
+              </div>
+              <div class="pull-right action-buttons">
+                <a class=""><span class="glyphicon glyphicon-ok"></span></a>
+                <a class="flag"><span class="glyphicon glyphicon-remove"></span></a>
+                <a class="trash" ng-click="trashResource(resource._id)"><span class="glyphicon glyphicon-trash"></span></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+              <div class="col-md-6">
+                <h6>Total Count <span class="label label-info" ng-bind="resources.length"></span></h6>
+              </div>
+              <div class="col-md-6">
+                <ul class="pagination pagination-sm pull-right">
+                  <li class="disabled"><a href="javascript:void(0)">«</a></li>
+                  <li class="active"><a href="javascript:void(0)">1 <span class="sr-only">(current)</span></a></li>
+                  <li><a>2</a></li>
+                  <li><a>3</a></li>
+                  <li><a>4</a></li>
+                  <li><a>5</a></li>
+                  <li><a href="javascript:void(0)">»</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <span class="glyphicon glyphicon-list"></span>Registered users
+              <div class="pull-right action-buttons">
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-cog" style="margin-right: 0px;"></span>
+                  </button>                
+                </div>
+              </div>
+            </div>
+          <div class="panel-body">
+            <ul class="list-group">
+              <li class="list-group-item" ng-repeat="user in users">
+                <div class="checkbox">                  
+                  <label ng-bind="user.username"></label>
+                </div>
+                <div class="pull-right action-buttons">
+                  
+                  <a class="trash" ng-click="deleteUser(user._id, user.username)"><span class="glyphicon glyphicon-trash"></span>Delete user</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="panel-footer">
+            <div class="row">
+                <div class="col-md-7">
+                  <h5 ng-bind="deletedUser" ng-show="userDeleted"></h5>
+                </div>
+                <div class="col-md-5">
+                  <h6>Total users <span class="label label-info" ng-bind="users.length"></span></h6>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

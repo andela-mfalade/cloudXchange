@@ -1,0 +1,27 @@
+{
+  "name": "cloudshare",
+  "version": "0.0.1",
+  "homepage": "https://github.com/andela-mfalade/cloudshare",
+  "authors": [
+    "Mayo"
+  ],
+  "description": "A simple web app that allows you download useful resources online as well as allow users upload resources",
+  "keywords": [
+    "upload",
+    "download",
+    "resources",
+    "materials",
+    "files",
+    "good",
+    "stuff"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

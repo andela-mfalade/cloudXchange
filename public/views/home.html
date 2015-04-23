@@ -1,0 +1,128 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <div> 
+      <div class="input-group col-md-4"></div>
+      <div id="custom-search-input">
+        <div class="input-group col-md-6">
+          <input type="text" class="search-query form-control" placeholder="Search for resources" ng-model="query"/>
+          <span class="input-group-btn">
+            <button class="btn btn-danger" type="button">
+              <span class=" glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+        <div class="input-group col-md-2"></div>
+
+    </div>
+    <hr class="buttom_space">
+
+      <div class="row" ng-init="showRecentPosts()">    
+        <div class="col-md-3">
+          <div class="sidebar-offcanvas" id="sidebar" role="navigation">
+            <div class="list-group">
+              <a class="list-group-item is-menu active" id="tab-preview">
+                <span class="glyphicon glyphicon-play-circle"></span>
+                Categories      
+              </a>
+              <a href="" id="tab-css" class="list-group-item is-menu" ng-click="changeCategory('arts')">
+                <span class="glyphicon glyphicon-leaf"></span>
+                Arts
+              </a>
+
+              <a class="list-group-item is-menu tip" href="" title="" data-placement="right" ng-click="changeCategory('health')">
+                <span class="glyphicon glyphicon-download-alt"></span>
+                Health        
+              </a> 
+                  
+              <a class="list-group-item is-menu" href="" id="tab-information" ng-click="changeCategory('literature')">
+                <span class="glyphicon glyphicon-book"></span>
+                Literature        
+              </a>
+
+              <a class="list-group-item is-menu" href="" id="tab-information" ng-click="changeCategory('programming')">
+                <span class="glyphicon glyphicon-console"></span>
+                Programming        
+              </a>
+
+              <a href="" id="tab-html" class="list-group-item  is-menu" ng-click="changeCategory('random')">
+                <span class="glyphicon glyphicon-list"></span>
+                Random
+              </a>  
+                           
+              <a class="list-group-item is-menu" href="" id="tab-comment" ng-click="changeCategory('science')">
+                <span class="glyphicon glyphicon-globe"></span>
+                Science        
+              </a>
+
+              <a class="list-group-item is-menu" href="" id="tab-comment" ng-click="changeCategory('')">
+                <span class="glyphicon glyphicon-th"></span>
+                Show all        
+              </a>                    
+                </div>
+            </div>
+          </div>                  
+          <div class="col-md-9 allResouces">
+            <div class="row">
+              <div class="well well-sm col-md-5 margin_left" ng-repeat="resource in resources | filter: category | filter: query">
+              <!-- Starting link -->
+              <a href="" ng-click="showResourcePage(resource._id, resource.category)"> 
+
+                <div class="row">
+                  <div class="col-xs-3 col-md-3 text-center">
+                    <img src="images/book.ico" alt="Material logo" class="img-rounded img-responsive" />
+                  </div>
+                  <div class="col-xs-9 col-md-9 section-box">
+                    <h6 ng-bind="resource.title"></h6>
+                    <small ng-bind="resource.contributor"></small>
+                    <hr/>
+                    <div class="row rating-desc">
+                      <div class="col-md-12">
+                      <a data-toggle="modal" href="#myModal" class="text-primary" id="modalBtn" ng-click="updateModal(resource._id)" onclick="showModal(event)" class="animate bounce">View summary</a>
+
+                        <!-- <span class="glyphicon glyphicon-comment"></span>(<span ng-bind="resource.likes"> </span> likes) -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </a> 
+                <!-- Closing link -->
+              </div>                      
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div id="myModal" ng-class="{'animated bounceInDown': true }" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"   aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">   
+          <div class="modal-header">
+            <a class="btn btn-default" data-dismiss="modal-dialog"><span class="glyphicon glyphicon-remove" onclick="hideModal()"></span></a>
+            <h4 class="modal-title" id="myModalLabel" ng-bind="resourceSummary.title"></h4>
+            <hr>
+          </div>
+          <div class="modal-body">
+            <h5>Contributed by <span ng-bind="resourceSummary.contributor"></span></h5>
+            <p>Added on <span ng-bind="resourceSummary.registered | date:'fullDate'"></span></p>
+            <p>File type: <span ng-bind="resourceSummary.file.type"></span>.</p>
+            <p>File Size: <span ng-bind="resourceSummary.file.size"></span>Bytes.</p>
+
+          </div>
+          <div class="modal-footer">
+            <div class="btn-group">
+            <button class="btn btn-danger" data-dismiss="modal" onclick="hideModal()">Cancel</button>
+          </div>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dalog -->
+    </div><!-- /.modal -->
+  </div>
+</div>
+

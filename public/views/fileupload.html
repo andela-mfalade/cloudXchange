@@ -1,0 +1,98 @@
+  <div class="jumbotron text-center">
+  <div class="row text-center container">
+  <div class="col-lg-1"></div>
+
+  <div class="col-lg-5">
+       <h4>Upload Material</h4>
+      <form class="form-horizontal" name="uploadForm" role="form">
+        <div class="radio"> 
+          <h5>Select Category</h5> 
+            <input id="arts" type="radio" name="category" value="arts" ng-model="category" ng-change="hideNotifications()">  
+            <label for="arts" class="radio">Arts</label>  
+            <input id="health" type="radio" name="category" value="health" ng-model="category" ng-change="hideNotifications()">  
+            <label for="health" class="radio">Health</label>
+            <input id="literature" type="radio" name="category" value="literature" ng-model="category" ng-change="hideNotifications()">  
+            <label for="literature" class="radio">Literature</label> 
+            <input id="programming" type="radio" name="category" value="programming" ng-model="category" ng-change="hideNotifications()">  
+            <label for="programming" class="radio">Programming</label> 
+            <input id="random" type="radio" name="category" value="random" ng-model="category" ng-change="hideNotifications()">  
+            <label for="random" class="radio">Random</label> 
+            <input id="science" type="radio" name="category" value="science" ng-model="category" ng-change="hideNotifications()">  
+            <label for="science" class="radio">Science</label>                
+        </div> 
+        <br>
+
+
+
+        <h5>Add title and description here.</h5>
+        <div class="form-group form-group-md">
+          <label class="col-sm-2 " for="md">Title</label>
+          <div class="col-sm-10">
+            <input class="form-control ng-invalid" type="text" id="md" ng-model="descr" ng-focus="hideNotifications()" required>
+          </div>
+        </div>
+        <div class="form-group form-group-md">
+          <label class="col-sm-2 " for="md">Contributor</label>
+          <div class="col-sm-10">
+            <input class="form-control ng-invalid" type="text" id="md" placeholder="Enter your username here" ng-model="username" ng-focus="hideNotifications()" required>
+          </div>
+        </div>
+        <div class="form-group form-group-md">
+          <label class="col-sm-2 " for="md">Resource Link</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" id="md" placeholder="Optional" ng-model="resourceLink" ng-focus="hideNotifications()">
+          </div>
+        </div>
+        <div class="form-group form-group-md">
+          <label class="col-sm-2 ng-invalid" for="md">Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control " id="md" ng-model="fileType" ng-focus="hideNotifications()" required></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default" ng-click="uploadForm.$valid && addFile()">Contribute</button>
+      </form>
+      <br>
+      <p class="text-success" ng-show="uploaded">File upload successful</p>
+      <p class="text-error" ng-show="blankfield">Please be sure to select a category..</p>
+
+      </div>
+
+      <div class="col-lg-1"></div>
+
+      <div class="col-lg-5">
+      <br>
+        <div class="container">
+            <div class="panel panel-default">
+              <div class="panel-heading"><strong>Upload File</div>
+              <div class="panel-body">
+                <h5>Select files from your computer or drag and drop files below</h5>
+                <form id="js-upload-form">
+                  <div class="form-inline">
+                    <div class="form-group">
+                      <!-- <input type="file" name="files[]" id="js-upload-files" multiple ng-model="file"> -->
+                      <input type="file" ng-file-select="onFileSelect($files)" accept=".jpg, .png, .pdf, .doc, .mp3">
+                      <br/>
+                        <ul>
+                          <li ng-repeat="item in uploader.queue">
+                            Name: <span ng-bind="item.file.name"></span><br/>
+                            <button ng-click="item.upload()">upload</button>
+                          </li>
+                        </ul>
+                    </div><br><br>
+                  </div>
+                </form>      
+
+            <!-- Drop Zone -->
+                <div class="upload-drop-zone" id="drop-zone">
+                  <!-- Drag and drop file here to upload. -->
+                  <img id='output'>
+                </div>
+
+                </div>
+              </div>
+            </div>
+
+        </div> 
+      </div>
+    </div>
+</div>
