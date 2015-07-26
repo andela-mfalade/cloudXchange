@@ -1,5 +1,6 @@
 angular.module('commentModule', ['commentservice'])
   .controller('commentCtrl', ['$scope', 'commentService', '$rootScope', function ($scope, commentService, $rootScope) {
+    $scope.liked = false;
     commentService.getResource( $rootScope.currentResource, function(arg) {
       $scope.currentInformation = arg;
       $scope.commentPosted = false;
@@ -17,12 +18,16 @@ angular.module('commentModule', ['commentservice'])
         }
       });
 
+      $scope.likeResource = function() {
+        $scope.liked = !$scope.liked;
+      };
+
       // var newoutput = document.getElementById('newoutput');
       //     newoutput.src = $scope.currentInformation[0].file;
       
       $scope.showThisCategory = function(arg) {
         // console.log(arg);
-      };  
+      };
 
       $scope.clearfields = function() {
         $scope.commenter = '';
