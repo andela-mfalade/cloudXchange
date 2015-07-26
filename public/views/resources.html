@@ -12,23 +12,21 @@
             <div class="panel panel-white post panel-shadow">
               <div class="post-heading">
                   <div>
-                    <a href=""><h4 class=""><b ng-bind="currentInformation[0].title"></b></h4></a>
+                    <h4 class="label_"><b ng-bind="currentInformation[0].title"></b></h4>
                   </div>
               </div> 
               <hr class="margin-bottom">
               <div class="">            
                 <div class="col-md-8 post-description text-center"> 
                   <p></p><br>
-                  <p class="lineHeight">Description: <span ng-bind="currentInformation[0].fileType"></span></p>
-                  <p>File size: <span ng-bind="currentInformation[0].file.size"></span>Bytes.</p>
-                  <p>Posted by: <span ng-bind="currentInformation[0].contributor"></span></p>
-                  <p>Posted on <span ng-bind="currentInformation[0].registered | date:'fullDate'"></span></p>
-                  <p>Resource link: <a ng-hide="noResourceLink" class="lineHeight" href="{{currentInformation[0].resourceLink}}" target="_blank"><span ng-bind="currentInformation[0].resourceLink" class="text-muted"></span></a></p>
+                  <p class="lineHeight"><span class="label_">Description:</span> <span ng-bind="currentInformation[0].fileType"></span></p>
+                  <p><span class="label_">Posted by:</span> <span ng-bind="currentInformation[0].contributor"></span></p>
+                  <p><span class="label_">Posted on: </span>  <span ng-bind="currentInformation[0].registered | date:'fullDate'"></span></p>
+                  <p><span class="label_">Resource link: </span><a ng-hide="noResourceLink" class="lineHeight" href="{{currentInformation[0].resourceLink}}" target="_blank"><span ng-bind="currentInformation[0].resourceLink" class="text-muted"></span></a></p>
 
                   <div class="stats">
-                    <a href="" class="btn btn-default stat-item">
-                      <i class="fa fa-thumbs-up icon"></i>Like  
-                    </a>
+                    <span ng-class="{'glyphicon': true,'glyphicon-heart': true, 'likeResourceButton': true, 'liked': liked }" ng-click="likeResource()"></span>
+
                     <a href="" class="btn btn-default stat-item">
                       <i class="fa fa-comments-o icon"></i>Comments: <span ng-bind="comments.length"></span>
                     </a>                       

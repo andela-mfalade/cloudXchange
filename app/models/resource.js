@@ -8,6 +8,7 @@ var resourceSchema  = mongoose.Schema({
   file         : String,
   resourceLink : String,
   likes        : { type: Number, default: 0},
+  views        : { type: Number, default: 0},
   registered   : { type: Date, default: Date.now }
 });
 

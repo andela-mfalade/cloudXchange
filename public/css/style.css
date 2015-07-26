@@ -1,14 +1,140 @@
 /*@import "../libs/angular-upload/src/directives/btnUpload.less";*/
+
+html {
+  background: #101010;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 200!important;
+}
+
+.jumbotron {
+  padding: 0;
+  margin: 0;
+}
+
 .centered-form{
   margin-top: 30px;
 }
+
+footer {
+  padding-top: 25px;
+  background: #101010;
+  color: #eeeeee;
+  height: 70px;
+}
+
+.list-group-item.active, .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  background-color: #118628;
+  border-color: #0E8A26;
+}
+
+.label_ {
+  color: #444;
+  font-weight: bold;
+}
+
 .ng-enter {
   transition: 0.75s;
   opacity: 0;
 }
 
+.resourceTitle {
+  font-size: 12px!important;
+  color: #1E1F24;
+  text-transform: capitalize;
+}
+
+.resourceTitle:hover {
+  color:#27AE60;
+  cursor: pointer;
+}
+
+.desc {
+  color: #696969!important;
+  text-transform: capitalize;
+}
+
+.btn_custom_ghost {
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 0;
+  outline: none;
+  color: #FFFFFF;
+  margin-top: 10px;
+  padding: 12px 50px;
+  transition: all 350ms cubic-bezier(.165,.84,.44,1)
+}
+
+.homepage_well {
+  padding: 0!important;
+}
+
+.well_body {
+  padding:10px;
+}
+
+.btn_custom_ghost:hover  {
+  background: #ffffff;
+  border:#ffffff;
+  text-decoration: none!important;
+  color: #010101;
+}
+
 .center {
-  text-align: center;
+  text-align: center!important;
+}
+.categoryDisplay {
+  color: #7c7c7c;
+  padding-top: 5px;
+  font-weight: normal;
+}
+
+.filterCtas:hover {
+  color: #337AB7;
+  cursor: pointer;
+}
+
+.likeResourceButton {
+  color: #333333!important;
+  font-size: 30px;
+  vertical-align: middle;
+  margin-right: 20px !important;
+}
+
+.likeResourceButton:hover {
+  cursor: pointer;
+}
+
+.liked {
+  color: #D41D1D!important;
+}
+
+.navbar-inverse  {
+  background-color: #101010!important;
+  border: none;
+}
+
+.bg_image {
+  background: #000 url('../images/bgimg.jpg');
+  height:160px;
+}
+
+.categoryDisplay {
+  height: 50px;
+  background: #ffffff;
+  border-bottom: 1px solid #d0d0d0;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.2);
+}
+
+.intro_text {
+  color: #ffffff;
+  font-weight: 100!important;
+  padding-top: 10px;
 }
 
 .ng-invalid.ng-dirty {
@@ -71,8 +197,21 @@ body {
   padding: 0;
 }
 
+.categoryListings {
+  border-left: 1px solid #dedede;
+}
+
+.numberOfx {
+  padding: 0;
+}
+
+.likesIcon, .viewsIcon {
+  padding-right: 0;
+}
+
 #custom-search-input .search-query {
   padding-right: 3px;
+  width: 112%;
   padding-right: 4px \9;
   padding-left: 10px;
   padding-left: 4px \9;
@@ -91,7 +230,6 @@ body {
   padding: 2px 5px;
   margin-top: 2px;
   position: relative;
-  left: -28px;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
   margin-bottom: 0;
   -webkit-border-radius: 3px;
@@ -133,10 +271,13 @@ body {
 .glyphicon-heart { color:#e74c3c;}
 .glyphicon-comment { color:#27ae60;}
 .separator { padding-right:5px;padding-left:5px; }
-.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+.section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid #e7e7e7;}
 
 
-body{background: #eee url(../images/sos.png);}
+.authPage {
+  background: #eee url(../images/sos.png);
+  min-height: 90vh;
+}
 html,body{
     position: relative;
     height: 100%;
@@ -273,7 +414,12 @@ html,body{
 }
 
 .margin_left {
-  margin-left: 50px;
+  margin-left: 10px;
+}
+
+.resourceImage {
+  width: 100%;
+  height: auto;
 }
 
 .password{
@@ -505,7 +651,8 @@ input[type=radio]:checked + label.radio:before {
   margin-left: 50px;
 }
 .comments {
-  padding-top: 0;
+  padding: 0;
+  padding-top: 5vh;
 }
 
 .username {
@@ -563,17 +710,4 @@ input[type=radio]:checked + label.radio:before {
 .btn-breadcrumb .btn:last-child {
   padding:6px 18px 6px 24px;
 }
-
-/** Default button **/
-.btn-breadcrumb .btn.btn-default:not(:last-child):after {
-  border-left: 10px solid #fff;
-}
-.btn-  .btn.btn-default:not(:last-child):before {
-  border-left: 10px solid #ccc;
-}
-.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
-  border-left: 10px solid #ebebeb;
-}
-.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
-  border-left: 10px solid #adadad;
 }
