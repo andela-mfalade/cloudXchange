@@ -1,6 +1,16 @@
-angular.module('commentModule', ['commentservice'])
-  .controller('commentCtrl', ['$scope', 'commentService', '$rootScope', function ($scope, commentService, $rootScope) {
+angular.module('commentModule', ['commentservice', 'resourceservice'])
+  .controller('commentCtrl', ['$scope', 'commentService', '$rootScope','resourceService', function ($scope, commentService, $rootScope, resourceService) {
     $scope.liked = false;
+
+    // All occurence of $rootScope.currentResource here refers to the _id of the currently selected resource
+    // Forgive your younger self's silliness
+
+    $scope.updateResource = function() {
+      resourceService.updateSchedule($rootScope.currentResource);
+    };
+
+
+    // This function is to get the comments available for the current resource
     commentService.getResource( $rootScope.currentResource, function(arg) {
       $scope.currentInformation = arg;
       $scope.commentPosted = false;
@@ -20,6 +30,9 @@ angular.module('commentModule', ['commentservice'])
 
       $scope.likeResource = function() {
         $scope.liked = !$scope.liked;
+        if($scope.liked) {
+          resourceService.updateSchedule($rootScope.currentResource, {action: 'like'});
+        }
       };
 
       // var newoutput = document.getElementById('newoutput');

@@ -1,6 +1,6 @@
 angular.module('resourceModule', ['resourceservice'])
   .controller('resourceCtrl', ['$scope', '$rootScope', 'resourceService', '$location', function ($scope, $rootScope, resourceService, $location) {
-    $scope.category      = '';
+    $scope.category  = '';
 
     $scope.showRecentPosts  = function() {
       resourceService.getResources(function(param) {
@@ -10,21 +10,18 @@ angular.module('resourceModule', ['resourceservice'])
       });
     };
 
-    $scope.showResourcePage = function(resource, category) {
-      $rootScope.currentResource = resource;
+    $scope.showTopVoted = function() {
+      var a = _.sortBy($scope.resources, 'title');
+    };
+
+    $scope.showResourcePage = function(resource_id, category) {
+      $rootScope.currentResource = resource_id;
+      resourceService.updateSchedule(resource_id, {action: 'view'});
       $rootScope.currentCategory = category;
       $location.path('/resources/resource');
     };
 
     $scope.changeCategory  = function(arg) {
       $scope.category = arg;
-    };
-
-    $scope.updateModal = function(arg) {
-      angular.forEach($scope.resources, function(index){
-        if(index._id === arg) {
-          $scope.resourceSummary = index;
-        }
-      })
     };
   }]);

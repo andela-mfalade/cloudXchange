@@ -25,6 +25,7 @@
     "tests"
   ],
   "dependencies": {
-    "lodash": "~3.10.0"
+    "lodash": "~3.10.0",
+    "ng-lodash": "~0.2.3"
   }
 }
