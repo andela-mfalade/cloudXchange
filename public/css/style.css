@@ -173,6 +173,10 @@ p.zeroMargin {
   transition: all ease-in .5s;
 }
 
+.likeButtonBorder.liked {
+  border: 1px solid #D41D1D!important;
+}
+
 .likeButtonBorder:hover {
   background: black;
 }

@@ -24,6 +24,7 @@ module.exports = {
           return res.json({ error: { message: "An unidentified error occured", code: 9000, err: err } });
         else
           if(action === 'like') resource.likes += 1;
+          if(action === 'unlike') resource.likes -= 1;
           if(action === 'view') resource.views += 1;
 
           resource.save(function(err, doc) {

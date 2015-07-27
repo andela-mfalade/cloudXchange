@@ -63,9 +63,9 @@
 
                 <!-- Download button area -->
                 <div class="col-md-2 col-md-offset-2">
-                  <div class="center meta stats side-space ">
-                    <div class="likeButtonBorder center">
-                      <span ng-class="{'glyphicon': true,'glyphicon-heart': true, 'likeResourceButton': true, 'liked': liked }" ng-click="likeResource()"></span>
+                  <div class="center meta stats side-space">
+                    <div class="likeButtonBorder center" ng-class="{'liked': liked}" ng-click="likeResource()">
+                      <span ng-class="{'glyphicon': true,'glyphicon-heart': true, 'likeResourceButton': true, 'liked': liked }"></span>
                     </div>
                   </div>
                 </div>
@@ -76,13 +76,14 @@
                 <div class="post-footer">
                     <h5>Leave a comment.</h5>
                     <input type="text" ng-model="commenter" class="form-control username" placeholder="Enter username" ng-focus="hideNotifications()"><br>
-                    <div class="input-group "> 
-                      
+                    <form ng-submit="addComment()">
+                      <div class="input-group "> 
                         <input class="form-control" placeholder="Add a comment" type="text" ng-model="comment" ng-focus="hideNotifications()">
                         <span class="input-group-addon" ng-click="addComment()">
                           <a href=""><i class="fa fa-edit"></i></a>  
                         </span>
-                    </div>
+                      </div>
+                    </form>
                     <h6 ng-show="commentPosted" class="text-success"> Your comment has been added..</h6>
                     <h6 ng-show="emptyComment" class="text-warning"> Please enter a comment.</h6>
                     <br>
