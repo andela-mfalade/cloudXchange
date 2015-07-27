@@ -165,16 +165,15 @@ p.zeroMargin {
 }
 
 .likeButtonBorder {
-  border: 1px solid #333333!important;
-  padding: 11px;
+  border: 3px solid #333333!important;
+  padding: 13px;
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  transition: all ease-in .5s;
+  width: 62px;
+  height: 62px;
 }
 
 .likeButtonBorder.liked {
-  border: 1px solid #D41D1D!important;
+  border: 3px solid #D41D1D!important;
 }
 
 .likeButtonBorder:hover {
@@ -184,6 +183,7 @@ p.zeroMargin {
 .likeResourceButton:hover {
   color: #FFFFFF!important;
 }
+
 /*    LIKE BUTTON STYLING ENDS HERE    */
 
 .align_left {
