@@ -15,7 +15,7 @@ var resourceservice = angular.module('resourceservice', [])
       updateSchedule: function(resourceId, param) {
         $http.put('resources/' + resourceId, param)
           .then(function(){
-            console.log("I think we are done here");
+            return true;
           });
       },
 
