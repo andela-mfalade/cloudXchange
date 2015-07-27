@@ -36,7 +36,7 @@
             <div class="col-md-3 categorySelection">
                 <div class="sidebar-offcanvas" id="sidebar" role="navigation">
                     <div class="list-group">
-                        <a class="list-group-item is-menu active" id="tab-preview">
+                        <a class="list-group-item is-menu active" ng-class="{'green': catBgColor == 'green','blue': catBgColor == 'blue', 'red': catBgColor == 'red', 'orange': catBgColor == 'orange', 'purple': catBgColor == 'purple', 'navy_blue': catBgColor == 'navy_blue'}" id="tab-preview">
                             <span class="glyphicon glyphicon-play-circle"></span> Categories
                         </a>
                         <a href="" id="tab-css" class="list-group-item is-menu" ng-click="changeCategory('arts')">

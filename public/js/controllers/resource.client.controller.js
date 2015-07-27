@@ -9,10 +9,14 @@ angular.module('commentModule', ['commentservice', 'resourceservice'])
       resourceService.updateSchedule($rootScope.currentResource);
     };
 
+    $scope.$on('$viewContentLoaded', function() {
+        $scope.catBgColor = resourceService.randomColorStore().randomColor;
+    });
 
     // This function is to get the comments available for the current resource
     commentService.getResource( $rootScope.currentResource, function(arg) {
       $scope.currentInformation = arg;
+      console.log(arg);
       $scope.commentPosted = false;
       $scope.emptyComment = false;
       $scope.noResourceLink = false;
@@ -90,7 +94,6 @@ angular.module('commentModule', ['commentservice', 'resourceservice'])
       $scope.fetchComments = function() {
         commentService.getComments($scope.currentInformation['0']._id ,function(arg) {
           $scope.comments = arg;
-          console.log(arg);
         });        
       };
 
