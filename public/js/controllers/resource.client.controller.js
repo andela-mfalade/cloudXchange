@@ -37,6 +37,9 @@ angular.module('commentModule', ['commentservice', 'resourceservice'])
         if($scope.liked) {
           resourceService.updateSchedule($rootScope.currentResource, {action: 'like'});
         }
+        else {
+          resourceService.updateSchedule($rootScope.currentResource, {action: 'unlike'});
+        }
       };
 
       // var newoutput = document.getElementById('newoutput');
