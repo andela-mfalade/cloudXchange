@@ -1,5 +1,6 @@
 var resourceservice = angular.module('resourceservice', [])
   .factory('resourceService', ['$http', function ($http) {  
+    var randomColorObject = {randomColor: 'green'};
     return {
       getResources: function(callbackFn) {
         $http.get('/resources')
@@ -16,6 +17,17 @@ var resourceservice = angular.module('resourceservice', [])
           .then(function(){
             console.log("I think we are done here");
           });
+      },
+
+      shuffleBGcolor: function() {
+        var randomVal = Math.ceil(Math.random() * 6);
+        var colors = ['green', 'blue', 'red', 'orange', 'purple', 'navy_blue'];
+        randomColorObject.randomColor = colors[randomVal - 1];
+        return randomColorObject;
+      },
+
+      randomColorStore: function() {
+        return randomColorObject;
       }
     }
 }]);

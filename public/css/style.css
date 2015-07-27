@@ -12,6 +12,35 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 200!important;
 }
 
+.green {
+  background: #118628!important;
+}
+
+.blue {
+  background: #3498db!important;
+  border: 1px solid #3498db!important;
+}
+
+.red {
+  background: #e74c3c!important;
+  border: 1px solid #e74c3c!important;
+}
+
+.orange {
+  background: #e67e22!important;
+  border: 1px solid #e67e22!important;
+}
+
+.purple {
+  background: #8e44ad!important;
+  border: 1px solid #8e44ad!important;
+}
+
+.navy_blue {
+  background: #34495e!important;
+  border: 1px solid #34495e!important;
+}
+
 .jumbotron {
   padding: 0;
   margin: 0;
@@ -67,7 +96,18 @@ footer {
   color: #FFFFFF;
   margin-top: 10px;
   padding: 12px 50px;
-  transition: all 350ms cubic-bezier(.165,.84,.44,1)
+  transition: all 350ms cubic-bezier(.165,.84,.44,1);
+}
+.dark_btn {
+  border: 1px solid #242424;
+  color: #242424;
+  transition: all 350ms cubic-bezier(.165,.84,.44,1);
+}
+
+.dark_btn:hover {
+  background: #242424!important;
+  border: 1px solid #242424;
+  color: #ffffff!important;
 }
 
 .homepage_well {
@@ -99,6 +139,16 @@ footer {
   cursor: pointer;
 }
 
+.zeroMargin {
+  margin: 0!important;
+}
+
+p.zeroMargin {
+  font-size: 14px;
+}
+
+
+/*   LIKE BUTTON STYLING STARTS HERE   */
 .likeResourceButton {
   color: #333333!important;
   font-size: 30px;
@@ -112,6 +162,53 @@ footer {
 
 .liked {
   color: #D41D1D!important;
+}
+
+.likeButtonBorder {
+  border: 1px solid #333333!important;
+  padding: 11px;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  transition: all ease-in .5s;
+}
+
+.likeButtonBorder:hover {
+  background: black;
+}
+
+.likeResourceButton:hover {
+  color: #FFFFFF!important;
+}
+/*    LIKE BUTTON STYLING ENDS HERE    */
+
+.align_left {
+  text-align: left;
+  float: left;
+}
+
+.fancy_right_border {
+  border-right: 1px solid #ddd;
+}
+
+.padding_right_sm {
+  padding-right: 20px;
+}
+
+.padding_left_sm {
+  padding-left: 20px;
+}
+
+.padding_side_sm {
+  padding: 0 20px;
+}
+
+.likes_n_views {
+  padding-bottom: 20px;
+}
+
+.resource_display {
+  padding-top: 50px;
 }
 
 .navbar-inverse  {
@@ -158,6 +255,16 @@ height:220px;
 
 .lineHeight {
   line-height: 30px;
+}
+
+.resource_container_header {
+  background: #F5F5F5;
+  border: 1px solid #ddd;
+}
+
+.resource_container_header h4 {
+  font-weight: 300!important;
+  font-size: 24px;
 }
 
 .ng-enter-active {
@@ -562,8 +669,7 @@ input[type=radio]:checked + label.radio:before {
 }
 
 .post .post-heading {
-  height: 0px;
-  padding: 20px;
+  padding: 15px 20px;
 }
 .post .post-heading .avatar {
   width: 60px;
@@ -596,17 +702,11 @@ input[type=radio]:checked + label.radio:before {
   font-size: 14px;
   text-align: justify;
 }
-.post .post-description .stats {
-  margin-top: 20px;
-  float: left;
-}
-.post .post-description .stats .stat-item {
-  display: inline-block;
-  margin-right: 15px;
-}
+
 .post .post-description .stats .stat-item .icon {
   margin-right: 8px;
 }
+
 .post .post-footer {
   border-top: 1px solid #ddd;
   padding: 15px;
@@ -712,5 +812,4 @@ input[type=radio]:checked + label.radio:before {
 }
 .btn-breadcrumb .btn:last-child {
   padding:6px 18px 6px 24px;
-}
 }

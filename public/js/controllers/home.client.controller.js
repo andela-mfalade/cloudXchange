@@ -2,6 +2,12 @@ angular.module('resourceModule', ['resourceservice'])
   .controller('resourceCtrl', ['$scope', '$rootScope', 'resourceService', '$location', function ($scope, $rootScope, resourceService, $location) {
     $scope.category  = '';
 
+
+    //This method is to randomize the background color of the category tabs
+    $scope.$on('$viewContentLoaded', function() {
+      $scope.catBgColor = resourceService.randomColorStore().randomColor;
+    });
+
     $scope.showRecentPosts  = function() {
       resourceService.getResources(function(param) {
         $rootScope.allResources = param;
