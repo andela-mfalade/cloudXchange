@@ -1,36 +1,47 @@
 angular.module('commentModule', ['commentservice', 'resourceservice'])
   .controller('commentCtrl', ['$scope', 'commentService', '$rootScope','resourceService', function ($scope, commentService, $rootScope, resourceService) {
+    
+    $scope.$on('$viewContentLoaded', function() {
+        $scope.catBgColor = resourceService.randomColorStore().randomColor;
+        $scope.updateResourceInfo();
+    });
+
     $scope.liked = false;
 
     // All occurence of $rootScope.currentResource here refers to the _id of the currently selected resource
     // Forgive your younger self's silliness
 
     $scope.updateResource = function() {
-      resourceService.updateSchedule($rootScope.currentResource);
+      $scope.fetchComments();
+      $scope.updateResourceInfo();
     };
 
-    $scope.$on('$viewContentLoaded', function() {
-        $scope.catBgColor = resourceService.randomColorStore().randomColor;
-    });
 
-    // This function is to get the comments available for the current resource
-    commentService.getResource( $rootScope.currentResource, function(arg) {
-      $scope.currentInformation = arg;
-      console.log(arg);
-      $scope.commentPosted = false;
-      $scope.emptyComment = false;
-      $scope.noResourceLink = false;
-      $scope.relatedResources = [];
-      var checkRL = $scope.currentInformation[0].resourceLink; //RL in this context means Resource Link
-      if (checkRL === undefined || checkRL === '') {
-        $scope.noResourceLink = true;
-      }
-      console.log($scope.currentInformation);
-      angular.forEach($rootScope.allResources, function(item) {
-        if(item.category === $rootScope.currentCategory) {
-          $scope.relatedResources.push(item);
+    // This function is to update the currently displayed resource based on a certain trigger..
+    /*  
+     * The current triggers for this method is the $viewsContentLoaded, The addComment and the likeResource methods
+     */
+    $scope.updateResourceInfo = function() {
+      commentService.getResource( $rootScope.currentResource, function(arg) {
+        $scope.currentInformation = arg;
+        console.log(arg);
+        $scope.commentPosted = false;
+        $scope.emptyComment = false;
+        $scope.noResourceLink = false;
+        $scope.relatedResources = [];
+        var checkRL = $scope.currentInformation[0].resourceLink; //RL in this context means Resource Link
+        if (checkRL === undefined || checkRL === '') {
+          $scope.noResourceLink = true;
         }
+        console.log($scope.currentInformation);
+        angular.forEach($rootScope.allResources, function(item) {
+          if(item.category === $rootScope.currentCategory) {
+            $scope.relatedResources.push(item);
+          }
+        });
+        $scope.fetchComments();
       });
+    };
 
       $scope.likeResource = function() {
         $scope.liked = !$scope.liked;
@@ -40,6 +51,7 @@ angular.module('commentModule', ['commentservice', 'resourceservice'])
         else {
           resourceService.updateSchedule($rootScope.currentResource, {action: 'unlike'});
         }
+        $scope.updateResourceInfo();
       };
 
       // var newoutput = document.getElementById('newoutput');
@@ -78,7 +90,7 @@ angular.module('commentModule', ['commentservice', 'resourceservice'])
         }
       };
 
-      $scope.updateCurrent = function(arg) {
+      $scope.loadNewResource = function(arg) {
         angular.forEach($rootScope.allResources, function(item) {
           if(arg === item._id) {
             $scope.currentInformation = [item];
@@ -99,9 +111,4 @@ angular.module('commentModule', ['commentservice', 'resourceservice'])
           $scope.comments = arg;
         });        
       };
-
-      $scope.fetchComments();
-    });
-
-
   }]);
