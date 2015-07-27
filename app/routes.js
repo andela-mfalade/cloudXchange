@@ -34,6 +34,7 @@ module.exports = function(app, passport) {
 
   app.get     ('/resources',      resourceFn.getResources     );
   app.get     ('/resources/:_id', resourceFn.getResource      );
+  app.put     ('/resources/:_id', resourceFn.updateResource   );
   app.post    ('/api/resources', resourceFn.addResource       );
   app.delete  ('/resource/:_id', resourceFn.deleteResource    );
 

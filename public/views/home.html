@@ -1,4 +1,4 @@
-<div class="col-md-12 text-center bg_image">
+<div class="col-md-12  bg_image">
   <div class="center">
     <h3 class="intro_text">Share and explore useful online resources</h3>
     <p>&nbsp;</p>
@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<div class="col-md-12 text-center categoryDisplay center">
+<div class="col-md-12  categoryDisplay center">
   <div class="col-md-6 col-md-offset-3 center">
     <div class="col-md-4">
       <h4 class="filterCtas" ng-click="changeCategory('')">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-md-4">
-      <h4 class="filterCtas">
+      <h4 class="filterCtas" ng-click="showTopVoted()">
         <span class="glyphicon glyphicon-thumbs-up"></span> Top Voted
       </h4>
     </div>
@@ -29,7 +29,7 @@
 </div>
 
 
-<div class="jumbotron text-center">
+<div class="jumbotron ">
     <div class="container">
         <hr class="buttom_space">
         <div class="row" ng-init="showRecentPosts()">
@@ -84,7 +84,7 @@
                     <div class="col-md-4" ng-repeat="resource in resources | filter: category | filter: query">
 
                         <div class="well homepage_well">
-                          <div class="text-center resourceImage" ng-click="showResourcePage(resource._id, resource.category)">
+                          <div class=" resourceImage" ng-click="showResourcePage(resource._id, resource.category)">
                               <img src="images/resimg.jpg" alt="Resource Image" class="img-responsive" />
                           </div>
                           <div class="well_body">
@@ -112,7 +112,7 @@
                                                   <span class="glyphicon glyphicon-eye-open"></span>
                                                 </div>
                                                 <div class="col-md-2">
-                                                2
+                                                  <span ng-bind="resource.views"></span>
                                                 </div>
 
                                                 <!-- Comments -->
