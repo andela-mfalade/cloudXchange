@@ -12,6 +12,16 @@ var resourceservice = angular.module('resourceservice', [])
           });     
       },
 
+      getResource: function(arg, cbf) {
+        $http.get('/resources/' + arg)
+          .success(function(data) {
+            cbf(data);
+          })
+          .error(function(err) {
+            console.log('Error getting resources.');
+          })
+      },
+
       updateSchedule: function(resourceId, param) {
         $http.put('resources/' + resourceId, param)
           .then(function(){

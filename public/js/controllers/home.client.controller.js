@@ -12,7 +12,6 @@ angular.module('resourceModule', ['resourceservice'])
       resourceService.getResources(function(param) {
         $rootScope.allResources = param;
         $scope.resources = param;
-        console.log(param);
       });
     };
 

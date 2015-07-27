@@ -45,7 +45,7 @@
                   <p class="lineHeight"><span class="label_">Description:</span> <span ng-bind="currentInformation[0].fileType"></span></p>
                   <p><span class="label_">Posted by:</span> <span ng-bind="currentInformation[0].contributor"></span></p>
                   <p><span class="label_">Posted on: </span>  <span ng-bind="currentInformation[0].registered | date:'fullDate'"></span></p>
-                  <p><span class="label_">Resource link: </span><a ng-hide="noResourceLink" class="lineHeight" href="{{currentInformation[0].resourceLink}}" target="_blank"><span ng-bind="currentInformation[0].resourceLink" class="text-muted"></span></a></p>
+                  <p ng-if="currentInformation[0].resourceLink"><span class="label_">Resource link: </span><a class="lineHeight" href="{{currentInformation[0].resourceLink}}" target="_blank"><span ng-bind="currentInformation[0].resourceLink" class="text-muted"></span></a></p>
 
                   <div class="pull-left meta stats side-space ">
                     <br>
