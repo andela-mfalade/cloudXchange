@@ -43,6 +43,7 @@ angular.module('resourceModule', ['resourceservice'])
     $scope.showResourcePage = function(resource_id, category) {
       $rootScope.currentResource = resource_id;
       resourceService.updateSchedule(resource_id, {action: 'view'});
+      resourceService.storeResourceID_inLocalStorage(category,'cat');
       $rootScope.currentCategory = category;
       $location.path('/resources/resource');
     };
