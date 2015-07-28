@@ -9,19 +9,19 @@
 <div class="col-md-12  categoryDisplay center">
   <div class="col-md-6 col-md-offset-3 center">
     <div class="col-md-4">
-      <h4 class="filterCtas" ng-click="changeCategory('')">
+      <h4 class="filterCtas" ng-click="sortByStat('all')">
         <span class="glyphicon glyphicon-th"></span> All categories
       </h4>
     </div>
 
     <div class="col-md-4">
-      <h4 class="filterCtas" ng-click="showTopVoted()">
+      <h4 class="filterCtas" ng-click="sortByStat('topVoted')">
         <span class="glyphicon glyphicon-thumbs-up"></span> Top Voted
       </h4>
     </div>
 
     <div class="col-md-4">
-      <h4 class="filterCtas">
+      <h4 class="filterCtas" ng-click="sortByStat('mostViewed')">
         <span class="glyphicon glyphicon-eye-open"></span> Most viewed
       </h4>
     </div>
