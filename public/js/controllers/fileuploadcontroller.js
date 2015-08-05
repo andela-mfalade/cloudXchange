@@ -1,5 +1,5 @@
-angular.module('fileuploadModule', [])
-  .controller('uploadCtrl', ['$scope', '$upload', '$http','uploadService',  function ($scope, $upload, $http, uploadService) {
+angular.module('fileuploadModule', ["slugifier"])
+  .controller('uploadCtrl', ['$scope', '$upload', '$http','uploadService', 'Slug',  function ($scope, $upload, $http, uploadService, Slug) {
     $scope.uploaded        = false;
     $scope.blankfield      = false;
     $scope.showFileDetails = false;
@@ -21,7 +21,10 @@ angular.module('fileuploadModule', [])
       $scope.blankfield = false;
     }
 
+
+
     $scope.addFile = function() {
+      $scope.resourceSlug = Slug.slugify($scope.descr);
       $scope.hideNotifications();
       if($scope.category === undefined) {
         $scope.blankfield = true;
@@ -33,15 +36,14 @@ angular.module('fileuploadModule', [])
           contributor   : $scope.username,
           fileType      : $scope.fileType,
           file          : $scope.newFile,
-          resourceLink  : $scope.resourceLink
+          resourceLink  : $scope.resourceLink,
+          resourceSlug  : $scope.resourceSlug
         };
-        uploadService.addFile($scope.fileInfo);
-        $scope.category     = '';
-        $scope.descr        = '';
-        $scope.username     = '';
-        $scope.fileType     = '';
-        $scope.resourceLink = '';
-        $scope.uploaded     = true;        
-      }
+        console.log($scope.fileInfo);
+        uploadService.addFile($scope.fileInfo, function (param) {
+          $scope.uploaded = param;
+          if($scope.uploaded) $('#myModal').modal('show');
+        });
+      }      
     }
   }]);

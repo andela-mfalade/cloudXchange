@@ -106,7 +106,7 @@ footer {
 
 .dark_btn:hover {
   background: #242424!important;
-  border: 1px solid #242424;
+  border: 1px solid #242424!important;
   color: #ffffff!important;
 }
 
@@ -203,8 +203,17 @@ p.zeroMargin {
   padding-left: 20px;
 }
 
+.padding_top_md {
+  padding-top: 50px;
+}
+
 .padding_side_sm {
   padding: 0 20px;
+}
+
+.modal_footer_padding {
+  padding-bottom: 10px!important;
+  padding-right: 10px!important;
 }
 
 .likes_n_views {
@@ -389,6 +398,9 @@ body {
 
 .authPage {
   background: #eee url(../images/sos.png);
+}
+
+.fullScreenheight, .authPage {
   min-height: 90vh;
 }
 html,body{

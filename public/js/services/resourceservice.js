@@ -39,7 +39,6 @@ var resourceservice = angular.module('resourceservice', [])
       storeResourceID_inLocalStorage: function (resource, property) {
         if(property == 'id')  $window.localStorage.setItem('currentResourceID', resource);
         if(property == 'cat') $window.localStorage.setItem('currentResourceCATEGORY', resource);
-        console.log(resource);
       },
 
       getCachedResource: function () {

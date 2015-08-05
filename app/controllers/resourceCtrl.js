@@ -48,7 +48,6 @@ module.exports = {
 
   addResource: function(req, res) {
     var body = req.body;
-    console.log(body );
     Resource.create(body, function(err) {
       if(err) {
         res.json( err );

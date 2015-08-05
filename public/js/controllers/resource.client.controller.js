@@ -1,9 +1,9 @@
 angular.module('commentModule', ['commentservice', 'resourceservice'])
-  .controller('commentCtrl', ['$scope', 'commentService', '$rootScope','resourceService', function ($scope, commentService, $rootScope, resourceService) {
-    
+  .controller('commentCtrl', ['$scope', '$route', '$routeParams', 'commentService', '$rootScope','resourceService',function ($scope,  $route, $routeParams, commentService, $rootScope, resourceService) {
+  
+    console.log($routeParams, 'Whatever the heck this is');
     // Load the cached resource in the $rootScope.currentResource everytime the resource page is loaded
     var currentResourceInfo = resourceService.getCachedResource();
-    console.log(currentResourceInfo);
     $rootScope.currentResource = $rootScope.currentResource || currentResourceInfo.resourceID;
     $rootScope.currentCategory = currentResourceInfo.resourceCATEGORY;
 
