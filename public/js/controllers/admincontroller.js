@@ -9,6 +9,20 @@ angular.module('adminModule', ['adminservice'])
       $scope.resources = arg;
     });
 
+    $scope.showModal = function () {
+      $('#confirmation_modal').modal('show');
+    };
+
+    $scope.showModalFor = function (item) {
+      $scope.showModal();
+      console.log(item);
+      $scope.modalObject = {
+        resourceTitle : item.title,
+        resourceContributor : item.contributor,
+        resourceID: item._id
+      }
+    };
+
     $scope.trashResource = function(id) {
       adminService.deleteResource(id);
       adminService.getResources(function(arg) {

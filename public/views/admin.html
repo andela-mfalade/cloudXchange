@@ -1,4 +1,4 @@
-<div class="jumbotron text-center">
+<div class="jumbotron fullScreenheight padding_top_md">
   <div class="container">
     <div class="row">
       <div class="col-md-7">
@@ -23,7 +23,7 @@
               <div class="pull-right action-buttons">
                 <a class=""><span class="glyphicon glyphicon-ok"></span></a>
                 <a class="flag"><span class="glyphicon glyphicon-remove"></span></a>
-                <a class="trash" ng-click="trashResource(resource._id)"><span class="glyphicon glyphicon-trash"></span></a>
+                <a class="trash" ng-click="showModalFor(resource)"><span class="glyphicon glyphicon-trash"></span></a>
               </div>
             </li>
           </ul>
@@ -92,3 +92,29 @@
     </div>
   </div>
 </div>
+
+
+
+<!-- Modal display starts here -->
+<div class="modal fade" id="confirmation_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete the item: </h4>
+      </div>
+      <div class="modal-body">
+        <h4 ng-bind="modalObject.resourceTitle" class="lead"></h4>
+
+        <p class="small"> By <span ng-bind="modalObject.resourceContributor"></span></p>
+      </div>
+      <div class="modal-footer modal_footer_padding">
+        <br>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="trashResource(modalObject.resourceID)">Yes I want to delete this resource</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Modal display ends here -->

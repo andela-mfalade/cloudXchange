@@ -26,6 +26,7 @@
   ],
   "dependencies": {
     "lodash": "~3.10.0",
-    "ng-lodash": "~0.2.3"
+    "ng-lodash": "~0.2.3",
+    "angular-slugify": "~1.0.1"
   }
 }
