@@ -5,7 +5,6 @@ var bodyParser     = require('body-parser');
 var passport       = require('passport');
 var mongoose       = require('mongoose');
 var express        = require('express');
-var multer         = require('multer')
 var db             = require('./config/db');  
 var app            = express();
 var User           = require('./app/models/user');
@@ -38,7 +37,7 @@ require('./app/auth/init');
 
 
 app.use(bodyParser.json()); 
-app.use(multer({ dest: './uploads/'}));
+
 app.use(express.static(__dirname + '/public')); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(flash());
