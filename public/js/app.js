@@ -12,8 +12,7 @@ var App = angular.module('App', [
     'resourceModule',
     'fileuploadModule', 
     'angularModalService',
-    'commentModule', 
-    'angularFileUpload'
+    'commentModule'
 ])
 .factory('_', ['$window', function($window){
   // Store lodash locally
