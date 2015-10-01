@@ -24,20 +24,20 @@ var adminservice = angular.module('adminservice', [])
       deleteResource: function(arg) {
         $http.delete('/resource/' + arg)
           .success(function() {
-            console.log('Resource deleted from database\nDetails: ' + arg);
+            return true
           })
           .error(function(err) {
-            console.log('Error deleting resource.', err);
+            return false
           })
       },
 
       deleteUser: function(userId) {
         $http.delete('/user/' + userId)
           .success(function(data){
-            console.log('User Deleted..')
+            return true
           })
           .error(function(error) {
-            console.log(error);
+            return false
           });     
       } 
     }

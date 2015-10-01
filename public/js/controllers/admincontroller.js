@@ -15,7 +15,6 @@ angular.module('adminModule', ['adminservice'])
 
     $scope.showModalFor = function (item) {
       $scope.showModal();
-      console.log(item);
       $scope.modalObject = {
         resourceTitle : item.title,
         resourceContributor : item.contributor,
