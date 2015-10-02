@@ -10,7 +10,7 @@ var methodOverride = require('method-override'),
     User           = require('./app/models/user'),
     initPassport   = require('./app/auth/init'),
     flash          = require('connect-flash'),
-    morgan         = require('morgan'),
+    morgan         = require('morgan');
 
 var env            = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var port           =  process.env.PORT || 3000;
