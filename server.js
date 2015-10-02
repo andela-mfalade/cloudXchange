@@ -1,18 +1,19 @@
-var methodOverride = require('method-override');
-var expressSession = require('express-session');
-var LocalStrategy  = require('passport-local').Strategy;
-var bodyParser     = require('body-parser');
-var passport       = require('passport');
-var mongoose       = require('mongoose');
-var express        = require('express');
-var db             = require('./config/db');  
-var app            = express();
-var User           = require('./app/models/user');
-var initPassport   = require('./app/auth/init');
-var flash          = require('connect-flash');
-var morgan          = require('morgan');
+var methodOverride = require('method-override'),
+    expressSession = require('express-session'),
+    LocalStrategy  = require('passport-local').Strategy,
+    bodyParser     = require('body-parser'),
+    passport       = require('passport'),
+    mongoose       = require('mongoose'),
+    express        = require('express'),
+    db             = require('./config/db'),
+    app            = express(),
+    User           = require('./app/models/user'),
+    initPassport   = require('./app/auth/init'),
+    flash          = require('connect-flash'),
+    morgan         = require('morgan'),
 
 var env            = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var port           =  process.env.PORT || 3000;
 
 if( env === 'development') {
   mongoose.connect(db.developmentUrl);
@@ -23,7 +24,6 @@ else {
 
 initPassport(passport);
 
-var port =  process.env.PORT || 3000;
 app.use(morgan('combined'));
 app.use(expressSession({
   secret: 'mySecretKey',
