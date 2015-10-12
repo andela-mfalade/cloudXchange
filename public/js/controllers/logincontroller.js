@@ -1,5 +1,5 @@
 angular.module('loginModule', ['loginService'])
-  .controller('loginCtrl', ['$scope', 'login', '$location', '$rootScope', function ($scope, login, $location, $rootScope) {
+  .controller('loginCtrl', ['$scope', 'auth', '$location', '$rootScope', function ($scope, auth, $location, $rootScope) {
     $scope.errorMsg = '';
     $scope.errorthrown = false;
     $scope.loginDetails = {
@@ -7,6 +7,7 @@ angular.module('loginModule', ['loginService'])
       password: ''
     };
     $scope.loginFailed = false;
+
     $scope.login = function() {
       $scope.errorthrown = false;
       $rootScope.currentUsername = $scope.username;
@@ -14,7 +15,9 @@ angular.module('loginModule', ['loginService'])
         username: $scope.username, 
         password: $scope.password
       };
-      login.login($scope.loginDetails, function(status) {
+
+      auth.login($scope.loginDetails, function(status) {
+
         var status = parseInt(status);
         if(status === 505) {
           $scope.errorMsg = 'Invalid user credentials. Please sign up to continue.';
@@ -27,6 +30,7 @@ angular.module('loginModule', ['loginService'])
         else if (status === 200) {
           $location.path('/profile');
         }
+
       });
 
         // 

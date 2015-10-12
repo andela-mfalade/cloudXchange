@@ -1,23 +1,22 @@
-var passport   = require('passport');
-var init       = require('./auth/init')(passport);
-var userFn     = require('./controllers/userCtrl');
-var adminFn    = require('./controllers/adminCtrl');
-var loginFn    = require('./controllers/loginCtrl');
-var commentFn  = require('./controllers/commentCtrl');
-var resourceFn = require('./controllers/resourceCtrl');
-var flash      = require('connect-flash');
-var multiparty = require('connect-multiparty');
-var multipartyWare = multiparty();
+var passport   = require('passport'),
+    init       = require('./auth/init')(passport),
+    auth       = require('./controllers/authCtrl'),
+    userFn     = require('./controllers/userCtrl'),
+    adminFn    = require('./controllers/adminCtrl'),
+    loginFn    = require('./controllers/loginCtrl'),
+    commentFn  = require('./controllers/commentCtrl'),
+    resourceFn = require('./controllers/resourceCtrl'),
+    flash      = require('connect-flash'),
+    multiparty = require('connect-multiparty'),
+    multipartyWare = multiparty();
 
 
 module.exports = function(app, passport) {
-  app.post    ('/auth/login',   passport.authenticate('login' ));
-  app.post    ('/auth/signup' , passport.authenticate('signup'));
 
-  app.get     ('/signout', function(req, res) {
-    req.logout();
-    res.redirect('/');
-  });
+  app.post     ('/auth/login', auth.loginUser                 );
+  app.post     ('/auth/signup', auth.signupUser               );
+
+  app.get     ('/users/me', auth.returnUserDetails            );
 
   app.get     ('/api/admin', adminFn.getAdmin                 );
   app.post    ('/api/admin', adminFn.addAdmin                 );
@@ -42,10 +41,13 @@ module.exports = function(app, passport) {
 }
 
 
+// route middleware to make sure a user is logged in
 function isLoggedIn(req, res, next) {
+
     // if user is authenticated in the session, carry on 
     if (req.isAuthenticated())
         return next();
+
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
