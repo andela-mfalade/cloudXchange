@@ -233,21 +233,23 @@ p.zeroMargin {
 }
 
 .bg_image {
-  background: #000 url('../images/bgimg.jpg');
+  background: #000 url('../images/cloudsharebg.png');
+  background-position: contain;
+  background-size: 200%;
+  background-repeat: none;
   height:160px;
 }
-
 .categoryDisplay {
   height: 50px;
   background: #ffffff;
   border-bottom: 1px solid #d0d0d0;
   box-shadow: 0 -1px 4px rgba(0,0,0,0.2);
 }
-
 .intro_text {
   color: #ffffff;
-  font-weight: 100!important;
+  font-weight: 400!important;
   padding-top: 10px;
+  line-height: 150%;
 }
 
 .ng-invalid.ng-dirty {
